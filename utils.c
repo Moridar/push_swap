@@ -6,7 +6,7 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 19:42:07 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/05 15:56:08 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/06 03:47:49 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,23 @@ int	calccount(int acount, int bcount)
 	if (bcount < 0 && bcount > acount)
 		return (-1 * acount + 1);
 	return (abs(acount) + abs(bcount) + 1);
+}
+
+int	validateandcount(char **list)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (list[++i])
+	{
+		j = 0;
+		if (list[i][0] == '-' && ft_isdigit(list[i][1]))
+			j++;
+		while (ft_isdigit(list[i][j]))
+			j++;
+		if (list[i][j])
+			return (0);
+	}
+	return (i);
 }

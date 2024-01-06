@@ -6,7 +6,7 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 13:55:39 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/05 15:53:24 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/06 03:44:00 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stacks
 
 int		turk_sort(t_stacks *st, int print);
 int		simple_sort(t_stacks *st, int print);
+int		validateandcount(char **list);
 int		calccount(int acount, int bcount);
 int		is_ordered(int arr[], int size);
 int		sa(t_stacks *st, int print);
