@@ -6,7 +6,7 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 19:42:07 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/06 03:47:49 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:46:19 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	simple_sort(t_stacks *st, int print)
 
 //Checks if the array is ordered in a circular way
 //Returns the index of the min value.
+//Returns -1 if not ordered.
 int	is_ordered(int arr[], int size)
 {
 	int	i;

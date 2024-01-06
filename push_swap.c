@@ -64,6 +64,7 @@ static int	checkdup(t_stacks *stacks)
 static int	initialize(int argc, char *argv[], t_stacks *stacks)
 {
 	char	**tmp;
+	char	**ptr;
 
 	if (!*argv[1])
 		return (write(2, "Error\n", 6));
@@ -73,6 +74,9 @@ static int	initialize(int argc, char *argv[], t_stacks *stacks)
 		if (!tmp)
 			return (0);
 		stacks->a = addtostack(tmp, &stacks->asize);
+		ptr = tmp;
+		while ((*ptr))
+			free((*ptr++));
 		free(tmp);
 	}
 	else
@@ -96,7 +100,10 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (initialize(argc, argv, &stacks) != -1)
 		return (2);
-	turk_sort(&stacks, 1);
+	if (is_ordered(stacks.a, stacks.asize) != -1)
+		simple_sort(&stacks, 1);
+	else
+		turk_sort(&stacks, 1);
 	free(stacks.a);
 	free(stacks.b);
 	return (0);
