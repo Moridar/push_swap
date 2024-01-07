@@ -6,7 +6,7 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:15:39 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/05 15:51:34 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/07 19:02:35 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	doaction(t_stacks *st, int count[2], int tob, int print)
 {
-	while (count[0] > 0)
+	while (count[0] > 0 && count[1] > 0)
 	{
-		count [0] -= rr(st, print);
+		count[0] -= rr(st, print);
 		count[1]--;
 	}
 	while (count[0] > 0)
@@ -121,7 +121,7 @@ int	turk_sort(t_stacks *st, int print)
 	count = 0;
 	if (st->asize > 3)
 		count += pb(st, print);
-	while (st->asize > 3)
+	while (st->asize > 3 && is_ordered(st->a, st->asize) == -1)
 		count += pushallcheapest(st, st->asize, print, 1);
 	if (is_ordered(st->a, st->asize) == -1)
 		count += sa(st, print);

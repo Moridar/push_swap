@@ -6,11 +6,21 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 19:42:07 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/06 19:46:19 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/07 18:36:08 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	freestringarray(char **list)
+{
+	int	i;
+
+	i = -1;
+	while (list[++i])
+		free(list[i]);
+	free(list);
+}
 
 int	simple_sort(t_stacks *st, int print)
 {

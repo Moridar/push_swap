@@ -64,7 +64,6 @@ static int	checkdup(t_stacks *stacks)
 static int	initialize(int argc, char *argv[], t_stacks *stacks)
 {
 	char	**tmp;
-	char	**ptr;
 
 	if (!*argv[1])
 		return (write(2, "Error\n", 6));
@@ -74,10 +73,7 @@ static int	initialize(int argc, char *argv[], t_stacks *stacks)
 		if (!tmp)
 			return (0);
 		stacks->a = addtostack(tmp, &stacks->asize);
-		ptr = tmp;
-		while ((*ptr))
-			free((*ptr++));
-		free(tmp);
+		freestringarray(tmp);
 	}
 	else
 		stacks->a = addtostack(argv + 1, &stacks->asize);

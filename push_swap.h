@@ -6,7 +6,7 @@
 /*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 13:55:39 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/06 03:44:00 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/07 18:36:50 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int		rrb(t_stacks *st, int print);
 int		rrr(t_stacks *st, int print);
 void	revrot(int *a, int size);
 void	rotate(int *a, int size);
+void	freestringarray(char **list);
 
 #endif
