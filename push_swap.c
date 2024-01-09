@@ -23,7 +23,7 @@ static int	*addtostack(char **list, int *i)
 {
 	int	*stack;
 
-	*i = validateandcount(list);
+	*i = validate_and_count(list);
 	if (!*i)
 		return (NULL);
 	stack = ft_calloc(sizeof(int), *i);
@@ -43,7 +43,7 @@ static int	*addtostack(char **list, int *i)
 	return (stack);
 }
 
-static int	checkdup(t_stacks *stacks)
+static int	check_dup(t_stacks *stacks)
 {
 	int	i;
 	int	j;
@@ -73,13 +73,13 @@ static int	initialize(int argc, char *argv[], t_stacks *stacks)
 		if (!tmp)
 			return (0);
 		stacks->a = addtostack(tmp, &stacks->asize);
-		freestringarray(tmp);
+		free_stringarray(tmp);
 	}
 	else
 		stacks->a = addtostack(argv + 1, &stacks->asize);
 	if (!stacks->a)
 		return (write(2, "Error\n", 6));
-	if (checkdup(stacks) == 0)
+	if (check_dup(stacks) == 0)
 		return (freeandreturn(0, stacks->a));
 	stacks->b = ft_calloc(sizeof(int), stacks->asize);
 	if (!stacks->b)

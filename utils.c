@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 19:42:07 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/07 18:36:08 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:45:22 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freestringarray(char **list)
+void	free_stringarray(char **list)
 {
 	int	i;
 
@@ -69,7 +69,9 @@ int	is_ordered(int arr[], int size)
 	return (minindex);
 }
 
-int	calccount(int acount, int bcount)
+//Count the needed actions
+//If both need a rotate, count once as rr is used.
+int	calc_count(int acount, int bcount)
 {
 	if (acount > 0 && bcount > acount)
 		return (bcount + 1);
@@ -82,7 +84,7 @@ int	calccount(int acount, int bcount)
 	return (abs(acount) + abs(bcount) + 1);
 }
 
-int	validateandcount(char **list)
+int	validate_and_count(char **list)
 {
 	int	i;
 	int	j;

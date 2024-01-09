@@ -3,76 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 18:04:16 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/08 12:12:23 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/10/26 12:28:02 by bsyvasal          #+#    #+#             */
+/*   Updated: 2023/10/30 16:30:05 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_itoa converts the integer n into a string of characters.
-
-	RESULT VALUE :
-	The string of the converted integer.
-*/
-
-static size_t	ft_itoa_len(long num)
+static int	intlen(int n)
 {
-	size_t	len;
+	int	i;
 
-	len = 0;
-	if (num == 0)
-		return (1);
-	if (num < 0)
-	{
-		len++;
-		num = -num;
-	}
-	while (num >= 1)
-	{
-		len++;
-		num /= 10;
-	}
-	return (len);
-}
-
-static char	*ft_num_to_str(long num, char *str, size_t len)
-{
-	str = ft_calloc(len + 1, sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	if (num < 0)
-	{
-		str[0] = '-';
-		num = -num;
-	}
-	len--;
-	while (len)
-	{
-		str[len] = (num % 10) + '0';
-		num /= 10;
-		len--;
-	}
-	if (str[0] != '-')
-		str[0] = (num % 10) + '0';
-	return (str);
+	i = 1;
+	while (ft_power(10, i) <= n)
+		if (++i == 10)
+			break ;
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	long	num;
-	size_t	len;
+	int		neg;
 	char	*str;
+	int		i;
 
-	num = n;
-	len = ft_itoa_len(num);
-	str = 0;
-	str = ft_num_to_str(num, str, len);
+	neg = 0;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+			return (ft_strdup("-2147483648"));
+		n = n * -1;
+		neg = 1;
+	}
+	i = intlen(n) + 1;
+	str = malloc(neg + i--);
 	if (!str)
-		return (NULL);
+		return (0);
+	str[neg + i--] = 0;
+	while (i >= 0)
+	{
+		str[neg + i--] = n % 10 + 48;
+		n /= 10;
+	}
+	if (neg)
+		str[0] = '-';
 	return (str);
 }

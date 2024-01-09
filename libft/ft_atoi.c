@@ -3,47 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 18:06:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:48:58 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/10/24 11:16:21 by bsyvasal          #+#    #+#             */
+/*   Updated: 2023/10/31 09:55:26 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_atoi converts a string into an int.
-
-	RETURN VALUE :
-	The converted int.
-*/
-
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	isneg;
-	int	i;
+	long	i;
+	int		sign;
 
-	num = 0;
-	isneg = 1;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '+' || *str == '-')
+		str++;
 	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'
-			|| str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f'))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	while (ft_isdigit(*str))
 	{
-		isneg *= -1;
-		i++;
+		i = i * 10 + *str - '0';
+		if (i < 0)
+		{
+			if (sign == 1)
+				return (-1);
+			return (0);
+		}
+		str++;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * isneg);
+	return ((int) i * sign);
 }

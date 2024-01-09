@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsyvasal <bsyvasal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 13:55:39 by bsyvasal          #+#    #+#             */
-/*   Updated: 2024/01/07 18:36:50 by bsyvasal         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:43:36 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_stacks
 
 int		turk_sort(t_stacks *st, int print);
 int		simple_sort(t_stacks *st, int print);
-int		validateandcount(char **list);
-int		calccount(int acount, int bcount);
+int		validate_and_count(char **list);
+int		calc_count(int acount, int bcount);
 int		is_ordered(int arr[], int size);
 int		sa(t_stacks *st, int print);
 int		sb(t_stacks *st, int print);
@@ -42,6 +42,6 @@ int		rrb(t_stacks *st, int print);
 int		rrr(t_stacks *st, int print);
 void	revrot(int *a, int size);
 void	rotate(int *a, int size);
-void	freestringarray(char **list);
+void	free_stringarray(char **list);
 
 #endif

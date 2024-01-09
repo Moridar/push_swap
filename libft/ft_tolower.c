@@ -3,24 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:52:04 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/06 15:42:20 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/10/24 10:11:34 by bsyvasal          #+#    #+#             */
+/*   Updated: 2023/10/25 12:02:50 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_tolower converts a given uppercase letter c to its
-	lowercase equivalent.
-
-	RETURN VALUE :
-	The lowercase equivalent letter.
-	The original character c if c is not an uppercase letter.	
-*/
 
 int	ft_tolower(int c)
 {

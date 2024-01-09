@@ -3,44 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsyvasal <bsyvasal@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 16:50:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:53:34 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/10/25 15:08:10 by bsyvasal          #+#    #+#             */
+/*   Updated: 2023/11/27 14:05:34 by bsyvasal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_substr extracts a substring from the given string by
-	allocating sufficient memory for the new string starting at index start
-	and ending at len characters.
-
-	RETURN VALUE :
-	A pointer to the new string.
-	NULL if the memory allocation fails.
-*/
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*res;
-	char	*src;
-	size_t	reslen;
+	char	*str;
+	size_t	strlen;
 
 	if (!s)
-		return (NULL);
-	if (ft_strlen(s) < (size_t)start)
+		return (0);
+	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	src = (char *)s + start;
-	if (ft_strlen(src) < len)
-		reslen = ft_strlen(src) + 1;
-	else
-		reslen = len + 1;
-	res = malloc(reslen * sizeof(char));
-	if (!res)
-		return (NULL);
-	ft_strlcpy(res, src, reslen);
-	return (res);
+	strlen = ft_strlen(s + start);
+	if (strlen < len)
+		len = strlen;
+	str = malloc(len + 1);
+	if (!str)
+		return (0);
+	ft_strlcpy(str, s + start, len + 1);
+	return (str);
 }
